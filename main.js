@@ -11,7 +11,7 @@ console.log(app.set("view"));
 //静态图片位置poi
 app.use('/static/img', express.static(__dirname + "/img"));
 //js.css文件位置
-app.use('/static', express.static(__dirname));
+app.use('/static', express.static(__dirname + '/static'));
 /*
 http://127.0.0.1:8081/static/;
 =>d:\MyFile\;
