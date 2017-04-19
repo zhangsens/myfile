@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>index</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="/static/bower_components/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <h1>holle world</h1>
+    <p>This is my web!</p>
+    <a href="./look">look the href</a>
+    <div id="app">
+        {{name}}
+        <a href="javascript:;" v-on:click="a">a</a>
+        <a href="javascript:;" @click="b">b</a>
+        <input type="words" name="words" value="words" v-model="message" placeholder="edit me">
+        <p>{{message}}</p>
+        <mycomponent></mycomponent>
+    </div>
+</body>
+<script>
+    //组件渲染
+    Vue.component("mycomponent", Content);
+    var Content = {
+        template: '<div>A custom component!</div>'
+    }
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            name: "zhangsens",
+            message: ""
+        },
+        // 仅实例可用组件
+        components: {
+            "mycomponent": Content
+        },
+        beforeCreate: function() {
+            console.info("index");
+        },
+        methods: {
+            a: function() {
+                console.log("aaa");
+                console.log(this.$children.rel);
+            },
+            b: function() {
+                console.log("bbb");
+            }
+        }
+    });
+</script>
+
+</html>
