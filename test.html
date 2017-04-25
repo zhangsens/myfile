@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title>test</title>
+</head>
+
+<body>
+    <script>
+        var ws, num = 0;
+        window.onload = function() {
+            ws = new WebSocket("ws://127.0.0.1:3000");
+
+            ws.onopen = function() {
+                console.log("connection");
+            }
+
+            ws.onmessage = function(message) {
+                console.log(message.data);
+                sentMessage();
+            }
+
+            function sentMessage() {
+                ws.send(num++);
+            }
+        }
+    </script>
+</body>
+
+</html>
