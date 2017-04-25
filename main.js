@@ -2,9 +2,9 @@ var express = require('express');
 var app = express();
 
 //ejs
-app.set("view engine", "ejs");
+//app.set("view engine", "ejs");
 //jade
-//app.set("view engine", "jade");
+app.set("view engine", "jade");
 app.set("views", __dirname + "/views");
 app.set("view options", { layout: false });
 
