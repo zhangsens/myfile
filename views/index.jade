@@ -1,10 +1,13 @@
 doctype html
 head
     script(type='text/javascript').
-        alert("1");
-        alert("2");
+        console.info("this is jade file");
+    script(type='text/javascript' src='/static/vue.min.js')
 body
     div.b#c
         p(class="a") this is index page.
     div.b#c
         p end
+    div#app {{message}}
+        mycomponent
+    script(ype='text/javascript' src='/static/vue.me.js')
