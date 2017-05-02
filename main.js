@@ -11,6 +11,7 @@ app.set("view options", { layout: false });
 console.log(app.set("view"));
 
 //.use中间件
+app.use('/react', express.static(__dirname + "/views/react"));
 //静态图片位置poi
 app.use('/static/img', express.static(__dirname + "/img"));
 //js.css文件位置
@@ -25,6 +26,11 @@ app.get('/', function(req, res) {
     res.render("index");
     //res.send('Hello World');
 });
+
+app.get('/react', function(req, res) {
+    console.log("进入react");
+    res.render("react/react");
+})
 
 app.get("/look", function(req, res) {
     res.render("look");
